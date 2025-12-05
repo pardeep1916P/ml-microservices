@@ -3,3 +3,9 @@ flask-cors
 numpy
 pandas
 scikit-learn
+yfinance
+tensorflow
+ta-lib
+ta
+requests
+python-dotenv

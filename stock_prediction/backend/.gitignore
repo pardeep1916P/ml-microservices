@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Model files
+*.pkl
+*.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
