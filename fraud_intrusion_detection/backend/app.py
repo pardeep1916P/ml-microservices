@@ -20,16 +20,21 @@ def hello():
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json() or {}
-
-m = load_model()
-expected = m.get("feature_count", 10)
-features = data.get("features", [])
-if not features or len(features) != expected:
-    return jsonify({"error":"send 'features' list of length 10"}), 400
-import numpy as np
-X = np.array([features])
-pred = m["model"].predict(X)[0]
-return jsonify({"prediction": int(pred)})
+    m = load_model()
+    expected = m.get("feature_count", 10)
+    features = data.get("features", [])
+    if not features or len(features) != expected:
+        return jsonify({"error": f"send 'features' list of length {expected}"}), 400
+    import numpy as np
+    X = np.array([features])
+    pred = m["model"].predict(X)[0]
+    prob = m["model"].predict_proba(X)[0]
+    return jsonify({
+        "prediction": int(pred),
+        "confidence": float(max(prob)),
+        "is_fraud": bool(pred),
+        "risk_score": float(prob[1]) if len(prob) > 1 else 0.0
+    })
 
 if __name__ == "__main__":
     # ensure model exists

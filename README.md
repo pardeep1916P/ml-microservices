@@ -6,18 +6,18 @@ Collection of ML microservices. Phishing detection, fraud detection, spam filter
 
 ## 📚 Projects
 
-| # | Project Name | Folder |
-|---|--------------|--------|
-| 1 | 🔍 Phishing URL Detector | [`phishing_url_detector/`](phishing_url_detector/) |
-| 2 | 🤖 AI Chatbot Service | [`ai_chatbot_service/`](ai_chatbot_service/) |
-| 3 | ⛓️ Blockchain Microservice | [`blockchain_microservice/`](blockchain_microservice/) |
-| 4 | 🚨 Fake News Detection | [`fake_news_detection/`](fake_news_detection/) |
-| 5 | 🛡️ Fraud & Intrusion Detection | [`fraud_intrusion_detection/`](fraud_intrusion_detection/) |
-| 6 | 🦠 Malware Detection | [`malware_detection/`](malware_detection/) |
-| 7 | 🏥 Medical Prediction | [`medical_prediction/`](medical_prediction/) |
-| 8 | 🎯 Recommendation System | [`recommendation_system/`](recommendation_system/) |
-| 9 | 📧 Spam Detection | [`spam_detection/`](spam_detection/) |
-| 10 | 📈 Stock Prediction | [`stock_prediction/`](stock_prediction/) |
+| # | Project Name | Folder | Status |
+|---|--------------|--------|--------|
+| 1 | 🔍 Phishing URL Detector | [`phishing_url_detector/`](phishing_url_detector/) | ✅|
+| 2 | 🤖 AI Chatbot Service | [`ai_chatbot_service/`](ai_chatbot_service/) | |
+| 3 | ⛓️ Blockchain Microservice | [`blockchain_microservice/`](blockchain_microservice/) | |
+| 4 | 🚨 Fake News Detection | [`fake_news_detection/`](fake_news_detection/) | |
+| 5 | 🛡️ Fraud & Intrusion Detection | [`fraud_intrusion_detection/`](fraud_intrusion_detection/) | ✅ |
+| 6 | 🦠 Malware Detection | [`malware_detection/`](malware_detection/) | |
+| 7 | 🏥 Medical Prediction | [`medical_prediction/`](medical_prediction/) | |
+| 8 | 🎯 Recommendation System | [`recommendation_system/`](recommendation_system/) | |
+| 9 | 📧 Spam Detection | [`spam_detection/`](spam_detection/) | |
+| 10 | 📈 Stock Prediction | [`stock_prediction/`](stock_prediction/) | |
 
 ---
 
