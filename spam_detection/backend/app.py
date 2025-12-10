@@ -20,16 +20,21 @@ def hello():
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json() or {}
-
-m = load_model()
-vec = m["vectorizer"]
-clf = m["model"]
-text = data.get("text", "")
-if not text:
-    return jsonify({"error":"send 'text' in JSON"}), 400
-X = vec.transform([text])
-pred = clf.predict(X)[0]
-return jsonify({"prediction": int(pred)})
+    m = load_model()
+    vec = m["vectorizer"]
+    clf = m["model"]
+    text = data.get("text", "")
+    if not text:
+        return jsonify({"error": "send 'text' in JSON"}), 400
+    X = vec.transform([text])
+    pred = clf.predict(X)[0]
+    prob = clf.predict_proba(X)[0]
+    return jsonify({
+        "prediction": int(pred),
+        "is_spam": bool(pred),
+        "confidence": float(max(prob)),
+        "spam_probability": float(prob[1]) if len(prob) > 1 else 0.0
+    })
 
 if __name__ == "__main__":
     # ensure model exists
