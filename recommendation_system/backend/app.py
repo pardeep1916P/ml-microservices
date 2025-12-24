@@ -20,13 +20,28 @@ def hello():
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json() or {}
-
-m = load_model()
-user = data.get("user")
-if not user:
-    return jsonify({"error":"send 'user' field"}), 400
-recs = m.get(user, {})
-return jsonify({"recommendations": recs})
+    m = load_model()
+    user = data.get("user")
+    if not user:
+        return jsonify({"error": "send 'user' field"}), 400
+    recs = m.get(user, {})
+    if not recs:
+        return jsonify({
+            "user": user,
+            "recommendations": [],
+            "message": "No recommendations found for this user"
+        })
+    
+    # Sort recommendations by rating
+    sorted_recs = sorted(recs.items(), key=lambda x: x[1], reverse=True)
+    return jsonify({
+        "user": user,
+        "recommendations": [
+            {"item": item, "rating": rating} 
+            for item, rating in sorted_recs
+        ],
+        "total_items": len(sorted_recs)
+    })
 
 if __name__ == "__main__":
     # ensure model exists
